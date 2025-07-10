@@ -6,7 +6,7 @@ const Footer = () => {
             La verdadera riqueza está en saber lo que tenemos
           </p>
           <p className="mt-2 text-sm text-white">
-            © {new Date().getFullYear()} Café de Colombia.
+            © {new Date().getFullYear()} Cafenar.
           </p>
         </div>
       </footer>

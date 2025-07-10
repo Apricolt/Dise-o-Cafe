@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from 'react';
@@ -13,11 +12,11 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-amber-950 p-4 shadow-md">
-      <span className="container mx-auto flex items-center justify-between">
-        <span className="text-white font-bold text-xl">Colombia Café</span>
+    <nav className="fixed top-0 left-0 w-full bg-amber-950/95 backdrop-blur-sm p-4 shadow-lg z-50">
+      <div className="container mx-auto flex items-center justify-between">
+        <span className="text-white font-bold text-xl">Cafenar</span>
         
-        <span className="flex space-x-4 text-amber-50">
+        <div className="flex space-x-4 text-amber-50">
           <Link href="/" className={`px-4 py-2 rounded-md transition-colors ${isActive('/')}`}>
             Inicio
           </Link>
@@ -29,8 +28,8 @@ const Navbar: React.FC = () => {
           <Link href="/analisis-grano" className={`px-4 py-2 rounded-md transition-colors ${isActive('/analisis-grano')}`}>
             IA Cafe
           </Link>
-        </span>
-      </span>
+        </div>
+      </div>
     </nav>
   );
 };
