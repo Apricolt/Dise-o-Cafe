@@ -37,7 +37,7 @@ export default function IAcoffe() {
       alert('Imagen subida exitosamente. Análisis completado.');
       // Aquí se procesaría la imagen con IA
       
-    } catch (error) {
+    } catch {
       alert('Error al procesar la imagen. Intente nuevamente.');
     } finally {
       setIsUploading(false);
