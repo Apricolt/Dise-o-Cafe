@@ -34,8 +34,54 @@ export default function IAcoffe() {
       // Simular proceso de análisis (aquí iría la lógica real de IA)
       await new Promise(resolve => setTimeout(resolve, 2000));
       
-      alert('Imagen subida exitosamente. Análisis completado.');
-      // Aquí se procesaría la imagen con IA
+      // Generar resultado aleatorio
+      const resultados = [
+        {
+          tipo: 'Arábica',
+          descripcion: 'Café de alta calidad con sabor suave y notas afrutadas. Nivel de tostado: Medio',
+          caracteristicas: ['Acidez brillante', 'Cuerpo medio', 'Notas florales']
+        },
+        {
+          tipo: 'Caturra',
+          descripcion: 'Variedad compacta con excelente productividad. Nivel de tostado: Claro',
+          caracteristicas: ['Cuerpo ligero', 'Acidez cítrica', 'Sabor limpio']
+        },
+        {
+          tipo: 'Bourbon',
+          descripcion: 'Café dulce con acidez equilibrada. Nivel de tostado: Medio-Oscuro',
+          caracteristicas: ['Dulzura natural', 'Notas de caramelo', 'Cuerpo suave']
+        },
+        {
+          tipo: 'Typica',
+          descripcion: 'Variedad clásica con perfil tradicional. Nivel de tostado: Claro',
+          caracteristicas: ['Sabor limpio', 'Acidez moderada', 'Cuerpo ligero']
+        },
+        {
+          tipo: 'Castillo',
+          descripcion: 'Café resistente con buen rendimiento. Nivel de tostado: Medio',
+          caracteristicas: ['Resistencia a enfermedades', 'Cuerpo balanceado', 'Sabor consistente']
+        },
+        {
+          tipo: 'Colombia',
+          descripcion: 'Híbrido de excelente calidad. Nivel de tostado: Medio-Claro',
+          caracteristicas: ['Buena acidez', 'Notas frutales', 'Cuerpo medio']
+        }
+      ];
+      
+      const resultadoAleatorio = resultados[Math.floor(Math.random() * resultados.length)];
+      
+      // Crear mensaje detallado
+      const mensaje = `☕ ANÁLISIS COMPLETADO ☕
+
+🌱 Tipo de Café: ${resultadoAleatorio.tipo}
+📝 Descripción: ${resultadoAleatorio.descripcion}
+
+✨ Características:
+${resultadoAleatorio.caracteristicas.map(caract => `• ${caract}`).join('\n')}
+
+🎯 Recomendación: Este café es ideal para métodos de preparación que resalten sus características únicas.`;
+
+      alert(mensaje);
       
     } catch {
       alert('Error al procesar la imagen. Intente nuevamente.');
