@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from 'framer-motion';
 import jsPDF from 'jspdf';
 
@@ -90,9 +91,10 @@ export default function AnalizadorCafe() {
 
       setAnalysisResult(data);
       setShowModal(true);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("❌ Error:", error);
-      setErrorMessage(`Error: ${error.message}`);
+      const errorMessage = error instanceof Error ? error.message : "Error desconocido";
+      setErrorMessage(`Error: ${errorMessage}`);
       setShowErrorModal(true);
     } finally {
       setLoading(false);
@@ -189,7 +191,9 @@ export default function AnalizadorCafe() {
           whileTap={{ scale: 0.98 }}
         >
           {previewUrl ? (
-            <img src={previewUrl} alt="Preview" className="max-w-full max-h-full object-contain rounded-lg" />
+            <div className="relative w-full h-full">
+              <Image src={previewUrl} alt="Preview" fill className="object-contain rounded-lg" unoptimized />
+            </div>
           ) : (
             <div className="text-center">
               <motion.div 
@@ -277,8 +281,8 @@ export default function AnalizadorCafe() {
 
               <div className="p-6 space-y-6">
                 {previewUrl && (
-                  <div className="text-center">
-                    <img src={previewUrl} alt="Imagen analizada" className="max-w-full max-h-48 object-contain rounded-lg mx-auto shadow-lg" />
+                  <div className="text-center relative w-full h-48 mx-auto">
+                    <Image src={previewUrl} alt="Imagen analizada" fill className="object-contain rounded-lg shadow-lg" unoptimized />
                   </div>
                 )}
 

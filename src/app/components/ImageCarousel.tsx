@@ -25,7 +25,7 @@ const ImageCarousel = () => {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [nextImage]);
 
   return (
     <section className="relative w-full max-w-2xl mx-auto">

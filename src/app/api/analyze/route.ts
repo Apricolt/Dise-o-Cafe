@@ -71,16 +71,19 @@ export async function POST(req: Request) {
 
     return NextResponse.json(resultado);
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("💥 Error en API route:", error);
+    const errorMessage = error instanceof Error ? error.message : "Error interno del servidor";
+    const errorDetail = error instanceof Error ? error.toString() : String(error);
+    
     return NextResponse.json(
       { 
-        error: error?.message || "Error interno del servidor",
+        error: errorMessage,
         clasificacion: "Error en el análisis",
         descripcion: "No se pudo procesar la imagen correctamente",
         recomendacion: "Intente nuevamente más tarde",
         nivel_confianza: "Bajo",
-        detalle: error?.toString()
+        detalle: errorDetail
       },
       { status: 500 }
     );
